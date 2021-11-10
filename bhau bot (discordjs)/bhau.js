@@ -9,7 +9,7 @@ const roastModel = require('./roast-schema')
 // mongoose functions
 
 const mongooseInit = async() => { 
-	const dbURI = 'mongodb+srv://Aaryadev:aurora1127@cluster0.jvar5.mongodb.net/bhau-cluster?retryWrites=true&w=majority';
+	const dbURI = 'mongodb+srv://<yourusername>:<yourpassword>@cluster0.jvar5.mongodb.net/bhau-cluster?retryWrites=true&w=majority';
 	try{
 		await mongoose.connect(dbURI);
 		let roastString = await getRandomRoast();
