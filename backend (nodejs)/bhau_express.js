@@ -6,7 +6,7 @@ const Roast = require('./roast_model.js');
 
 
 const connectDB = (roast) => {
-    const dbURI = "mongodb+srv://Aaryadev:<yourpassword>@cluster0.jvar5.mongodb.net/bhau-cluster?retryWrites=true&w=majority"
+    const dbURI = "mongodb+srv://<yourusername>:<yourpassword>@cluster0.jvar5.mongodb.net/bhau-cluster?retryWrites=true&w=majority"
     mongoose.connect(dbURI).then((result)=>{
         console.log('connected to mongodb cluster')
     }).catch((err) => console.log(err));
