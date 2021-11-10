@@ -11,3 +11,8 @@ took about 7-8 hours to get this up and running cause my dumb arse can't code
 
 
 if yk js and node, you know how to install the dependencies, if you dont...well you don't.
+
+
+i still have to host it tho, will do it in a couple days
+
+peace
