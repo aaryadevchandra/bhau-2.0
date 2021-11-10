@@ -1,0 +1,43 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap'); */
+
+@font-face {
+  font-family: 'vicioushunger';
+  src: url(vicioushunger.ttf);
+}
+
+* {
+  margin: 0;
+  font-family: 'vicioushunger';
+  color: #333;
+}
+
+.content{
+  text-align: center;
+  margin: 30px;
+}
+
+.redcolor{
+  color: #f1356d;
+}
+
+
+.btnhovered:hover{
+  color: #f1356d !important;
+}
+
+.blog-preview{
+  margin:20px;
+  border-bottom: 5px #fafafa;
+  border-radius: 5px;
+}
+
+.blog-preview:hover{
+  box-shadow: 1px 3px 5px rgba(0,0,0, 0.1);
+}
+
+.dojoblog{
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  margin-right: 500px;
+}
