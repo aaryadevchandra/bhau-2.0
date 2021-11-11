@@ -15,4 +15,8 @@ if yk js and node, you know how to install the dependencies, if you dont...well 
 
 i still have to host it tho, will do it in a couple days
 
+# WHAT IT DOES
+
+
+
 peace
