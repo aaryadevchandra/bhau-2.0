@@ -18,5 +18,9 @@ i still have to host it tho, will do it in a couple days
 # WHAT IT DOES
 
 
+bhau was made a year ago where it would randomly select a roast from a python list, and any new roasts to be added had to be manually added to the list. people usually sent me stuff that I added. 
 
-peace
+
+too much work, so created a frontend where people could add roasts on their on, gets stored in a mongo collection.
+
+still haven't hosted everything, will do it when im free
