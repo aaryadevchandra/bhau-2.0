@@ -1,6 +1,6 @@
 backend-nodejs/node_modules/
 backend-nodejs/package-lock.json/
-bhau-bot-discord-js/node_modules/
-bhau-bot-discord-js/package-lock.json/
-frontend-nodejs/node_modules/
-frontend-nodejs/package-lock.json/
+bhau-bot-discordjs/node_modules/
+bhau-bot-discordjs/package-lock.json/
+frontend-react/ode_modules/
+frontend-react/package-lock.json/

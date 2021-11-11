@@ -100,12 +100,42 @@ client.on('messageCreate', (message) => {
 		else if(message.content.split(" ").at(0) === '.sd'){
 			if (message.mentions.users.at(0) != undefined){
 				for(let i = 0; i < message.mentions.members.size; i++)  {
-					console.log( 'running server mute : '+ message.mentions.members.at(i).voice.channelId );
+					console.log( 'running server deafen : '+ message.mentions.members.at(i).voice.channelId );
 					if (message.mentions.members.at(i).voice.channelId != null) {
 						try{message.mentions.members.at(i).voice.setDeaf(true);}
 						catch(e){
 							console.log(e);
 							message.reply('Error performing the deafen operation');}
+					}
+					else message.reply('User needs to be connected to a voice channel');
+				}
+			}
+			else message.reply('Invalid args');
+		}
+		else if(message.content.split(" ").at(0) === '.ssm'){
+			if(message.mentions.users.at(0) != undefined){
+				for(let i = 0; i < message.mentions.members.size; i++){
+					console.log('running server unmute : ' + message.mentions.members.at(i).voice.channelId);
+					if (message.mentions.members.at(i).voice.channelId != null) {
+						try{message.mentions.members.at(i).voice.setMute(false);}
+						catch(e){
+							console.log(e);
+							message.reply('Error performing the unmute operation');}
+					}
+					else message.reply('User needs to be connected to a voice channel');
+				}
+			}
+			else message.reply('Invalid args');
+		}
+		else if(message.content.split(" ").at(0) === '.ssd'){
+			if(message.mentions.users.at(0) != undefined){
+				for(let i = 0; i < message.mentions.members.size; i++){
+					console.log('running server undeafen : ' + message.mentions.members.at(i).voice.channelId);
+					if (message.mentions.members.at(i).voice.channelId != null) {
+						try{message.mentions.members.at(i).voice.setDeaf(false);}
+						catch(e){
+							console.log(e);
+							message.reply('Error performing the undeafen operation');}
 					}
 					else message.reply('User needs to be connected to a voice channel');
 				}
