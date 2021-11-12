@@ -29,7 +29,8 @@ const getRandomInt = (min, max) => {
 const getRandomRoast = async() => {
 	try{
 		let mongoData = await roastModel.find(); // mongoData is a list of objects containing roasts
-		return mongoData[getRandomInt(0, mongoData.length)].Roast;
+		console.log(mongoData.length);
+		return mongoData[12].Roast;
 	}
 	catch(e){
 		console.log(e);
@@ -48,9 +49,11 @@ client.on('messageCreate', (message) => {
 
 	//checking if message starts with command
 	if(message.content.startsWith(BOT_CMD)) {
-		if ( message.content.split(" ").at(0) === '.kick' ){
-				//if there's one mention in message.content
-				if (message.mentions.users.at(0) != undefined){
+		
+		switch(message.content.split(" ").at(0)){
+			case '.kick': 
+			//if there's one mention in message.content
+			if (message.mentions.users.at(0) != undefined){
 				//all good
 				for(let i = 0; i < message.mentions.members.size; i++) {
 					var memberToKickId = message.mentions.users.at(i).id;
@@ -61,9 +64,10 @@ client.on('messageCreate', (message) => {
 					message.reply('User was kicked, sire');
 				}
 			}
-			else message.reply('Invalid args');
-		}
-		else if(message.content.split(" ").at(0) === '.bhau'){
+			else message.reply('Invalid args'); 
+			break;
+
+			case '.bhau': 
 			let words = message.content.split(" ");
 			try{
 				if(message.mentions.users.at(1)!= undefined){
@@ -81,8 +85,9 @@ client.on('messageCreate', (message) => {
 			}catch(e){
 				console.log(e);
 			}
-		}
-		else if(message.content.split(" ").at(0) === '.sm'){
+			break;
+
+			case '.sm':
 			if (message.mentions.users.at(0) != undefined){
 				for(let i = 0; i < message.mentions.members.size; i++)  {
 					console.log( 'running server mute : '+ message.mentions.members.at(i).voice.channelId );
@@ -91,56 +96,62 @@ client.on('messageCreate', (message) => {
 						catch(e){
 							console.log(e);
 							message.reply('Error performing the mute operation');}	
-					}	
-					else message.reply('User needs to be connected to a voice channel');
-				}
-			}
-			else message.reply('Invalid args');
-		}
-		else if(message.content.split(" ").at(0) === '.sd'){
-			if (message.mentions.users.at(0) != undefined){
-				for(let i = 0; i < message.mentions.members.size; i++)  {
-					console.log( 'running server deafen : '+ message.mentions.members.at(i).voice.channelId );
-					if (message.mentions.members.at(i).voice.channelId != null) {
-						try{message.mentions.members.at(i).voice.setDeaf(true);}
-						catch(e){
-							console.log(e);
-							message.reply('Error performing the deafen operation');}
 					}
 					else message.reply('User needs to be connected to a voice channel');
 				}
 			}
 			else message.reply('Invalid args');
-		}
-		else if(message.content.split(" ").at(0) === '.ssm'){
-			if(message.mentions.users.at(0) != undefined){
-				for(let i = 0; i < message.mentions.members.size; i++){
-					console.log('running server unmute : ' + message.mentions.members.at(i).voice.channelId);
-					if (message.mentions.members.at(i).voice.channelId != null) {
-						try{message.mentions.members.at(i).voice.setMute(false);}
-						catch(e){
-							console.log(e);
-							message.reply('Error performing the unmute operation');}
+			break;
+
+			case '.sd':
+				if (message.mentions.users.at(0) != undefined){
+					for(let i = 0; i < message.mentions.members.size; i++)  {
+						console.log( 'running server deafen : '+ message.mentions.members.at(i).voice.channelId );
+						if (message.mentions.members.at(i).voice.channelId != null) {
+							try{message.mentions.members.at(i).voice.setDeaf(true);}
+							catch(e){
+								console.log(e);
+								message.reply('Error performing the deafen operation');}
+						}
+						else message.reply('User needs to be connected to a voice channel');
 					}
-					else message.reply('User needs to be connected to a voice channel');
 				}
-			}
-			else message.reply('Invalid args');
-		}
-		else if(message.content.split(" ").at(0) === '.ssd'){
-			if(message.mentions.users.at(0) != undefined){
-				for(let i = 0; i < message.mentions.members.size; i++){
-					console.log('running server undeafen : ' + message.mentions.members.at(i).voice.channelId);
-					if (message.mentions.members.at(i).voice.channelId != null) {
-						try{message.mentions.members.at(i).voice.setDeaf(false);}
-						catch(e){
-							console.log(e);
-							message.reply('Error performing the undeafen operation');}
+				else message.reply('Invalid args');
+
+			break;
+
+			case '.ssm':
+				if(message.mentions.users.at(0) != undefined){
+					for(let i = 0; i < message.mentions.members.size; i++){
+						console.log('running server unmute : ' + message.mentions.members.at(i).voice.channelId);
+						if (message.mentions.members.at(i).voice.channelId != null) {
+							try{message.mentions.members.at(i).voice.setMute(false);}
+							catch(e){
+								console.log(e);
+								message.reply('Error performing the unmute operation');}
+						}
+						else message.reply('User needs to be connected to a voice channel');
 					}
-					else message.reply('User needs to be connected to a voice channel');
 				}
-			}
-			else message.reply('Invalid args');
+				else message.reply('Invalid args');
+			break;
+
+			case '.ssd':
+				if(message.mentions.users.at(0) != undefined){
+					for(let i = 0; i < message.mentions.members.size; i++){
+						console.log('running server undeafen : ' + message.mentions.members.at(i).voice.channelId);
+						if (message.mentions.members.at(i).voice.channelId != null) {
+							try{message.mentions.members.at(i).voice.setDeaf(false);}
+							catch(e){
+								console.log(e);
+								message.reply('Error performing the undeafen operation');}
+						}
+						else message.reply('User needs to be connected to a voice channel');
+					}
+				}
+				else message.reply('Invalid args');
+
+			break;
 		}
 	}
 });
