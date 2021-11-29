@@ -30,7 +30,7 @@ const getRandomRoast = async() => {
 	try{
 		let mongoData = await roastModel.find(); // mongoData is a list of objects containing roasts
 		console.log(mongoData.length);
-		return mongoData[12].Roast;
+		return mongoData[getRandomInt()].Roast;
 	}
 	catch(e){
 		console.log(e);
